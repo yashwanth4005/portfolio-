@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Primary SEO -->
+    <title>Yashwanth Kumar — Portfolio</title>
+    <meta name="description"
+        content="Personal portfolio of Yashwanth Kumar — B.Tech graduate aspiring to work in software development, data, and machine learning." />
+    <meta name="author" content="Yashwanth Kumar" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Yashwanth Kumar — Portfolio" />
+    <meta property="og:description" content="B.Tech graduate. Aspiring Software & Data Professional." />
+    <meta property="og:image" content="assets/images/profile.jpg" />
+    <meta property="og:url" content="" /><!-- Add your GitHub Pages URL -->
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Yashwanth Kumar — Portfolio" />
+    <meta name="twitter:description" content="B.Tech graduate. Aspiring Software & Data Professional." />
+    <meta name="twitter:image" content="assets/images/profile.jpg" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+
+    <!-- Preconnect for Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+
+    <!-- ════════════════════════════════════════════════════════
+       NAVIGATION
+  ════════════════════════════════════════════════════════ -->
+    <header>
+        <nav id="navbar" role="navigation" aria-label="Main navigation">
+            <div class="container nav-inner">
+
+                <!-- Logo -->
+                <a href="#home" class="nav-logo" aria-label="Yashwanth Kumar — Home">
+                    Yashwanth<span>.</span>
+                </a>
+
+                <!-- Desktop links -->
+                <ul class="nav-links" role="list">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+
+                <!-- Actions -->
+                <div class="nav-actions">
+                    <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+                        <!-- Icon injected by theme.js -->
+                    </button>
+                    <button id="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+                        <span></span><span></span><span></span>
+                    </button>
+                </div>
+
+            </div>
+        </nav>
+
+        <!-- Mobile nav drawer -->
+        <nav id="mobile-nav" aria-label="Mobile navigation">
+            <a href="#home" class="nav-link">Home</a>
+            <a href="#about" class="nav-link">About</a>
+            <a href="#education" class="nav-link">Education</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </nav>
+    </header>
+
+    <!-- ════════════════════════════════════════════════════════
+       MAIN CONTENT
+  ════════════════════════════════════════════════════════ -->
+    <main>
+
+        <!-- HERO -->
+        <section id="home" aria-label="Introduction">
+            <div id="tsparticles"></div>
+            <div id="hero-content"><!-- Rendered by main.js --></div>
+        </section>
+
+        <!-- ABOUT -->
+        <section id="about" aria-labelledby="about-heading">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">About Me</span>
+                    <h2 class="section-title" id="about-heading">Who I Am</h2>
+                    <p class="section-subtitle">A little bit about my background and what drives me.</p>
+                </div>
+                <div id="about-content"><!-- Rendered by main.js --></div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
+        <section id="education" aria-labelledby="edu-heading">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Education</span>
+                    <h2 class="section-title" id="edu-heading">Academic Background</h2>
+                    <p class="section-subtitle">My educational qualifications and institutions.</p>
+                </div>
+                <div id="education-content"><!-- Rendered by main.js --></div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
+        <section id="skills" aria-labelledby="skills-heading">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Technical Skills</span>
+                    <h2 class="section-title" id="skills-heading">What I Work With</h2>
+                    <p class="section-subtitle">Technologies and tools I use — always learning more.</p>
+                </div>
+                <div id="skills-content"><!-- Rendered by main.js --></div>
+            </div>
+        </section>
+
+        <!-- PROJECTS -->
+        <section id="projects" aria-labelledby="projects-heading">
+            <div class="container">
+                <div class="projects-header-row section-header" style="margin-bottom:0">
+                    <div>
+                        <span class="section-tag">Projects</span>
+                        <h2 class="section-title" id="projects-heading">My Work</h2>
+                        <p class="section-subtitle">Projects I build while learning and solving real-world problems.</p>
+                    </div>
+                </div>
+                <div id="projects-container" style="margin-top:40px"><!-- Rendered by projects.js --></div>
+            </div>
+        </section>
+
+
+
+
+        <!-- CURRENTLY LEARNING -->
+        <section id="learning" aria-labelledby="learning-heading">
+            <div class="container">
+                <div class="section-header">
+                    <span class="section-tag">Currently Learning</span>
+                    <h2 class="section-title" id="learning-heading">What I'm Exploring Now</h2>
+                    <p class="section-subtitle">Technologies and concepts I'm actively studying.</p>
+                </div>
+                <div id="learning-content"><!-- Rendered by main.js --></div>
+            </div>
+        </section>
+
+        <!-- RESUME -->
+        <section id="resume" aria-labelledby="resume-heading">
+            <div class="container">
+                <div class="section-header" style="text-align:center">
+                    <span class="section-tag">Resume</span>
+                    <h2 class="section-title" id="resume-heading">My Resume</h2>
+                </div>
+                <div id="resume-content"><!-- Rendered by main.js --></div>
+            </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact" aria-labelledby="contact-heading">
+            <div class="container">
+                <div class="section-header" style="text-align:center">
+                    <span class="section-tag">Contact</span>
+                    <h2 class="section-title" id="contact-heading">Let's Connect</h2>
+                </div>
+                <div id="contact-content"><!-- Rendered by main.js --></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ════════════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════════════ -->
+    <footer role="contentinfo">
+        <div class="container" id="footer-content"><!-- Rendered by main.js --></div>
+    </footer>
+
+    <!-- ════════════════════════════════════════════════════════
+       ADMIN TOOLBAR (hidden from public visitors)
+  ════════════════════════════════════════════════════════ -->
+    <div id="admin-toolbar" role="toolbar" aria-label="Admin controls">
+        <!-- Rendered by admin.js -->
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+       MODAL — Admin Login
+  ════════════════════════════════════════════════════════ -->
+    <div id="modal-admin-login" class="modal-overlay" role="dialog" aria-modal="true"
+        aria-labelledby="admin-modal-title">
+        <div class="modal-box">
+            <div class="modal-header">
+                <span class="modal-title" id="admin-modal-title">🔒 Admin Access</span>
+                <button class="modal-close" aria-label="Close">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body"><!-- Rendered by admin.js --></div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" id="modal-admin-cancel">Cancel</button>
+                <button class="btn btn-primary" id="modal-admin-submit">Login</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+       MODAL — Add / Edit Project
+  ════════════════════════════════════════════════════════ -->
+    <div id="modal-project-form" class="modal-overlay" role="dialog" aria-modal="true"
+        aria-labelledby="project-form-title">
+        <div class="modal-box">
+            <div class="modal-header">
+                <span class="modal-title" id="project-form-title">Add Project</span>
+                <button class="modal-close" aria-label="Close project form">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body"><!-- Rendered by projects.js --></div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" id="modal-project-cancel">Cancel</button>
+                <button class="btn btn-primary" id="modal-project-submit">Save Project</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+       MODAL — Project Detail View
+  ════════════════════════════════════════════════════════ -->
+    <div id="modal-project-detail" class="modal-overlay" role="dialog" aria-modal="true"
+        aria-labelledby="project-detail-title">
+        <div class="modal-box">
+            <div class="modal-header">
+                <span class="modal-title" id="project-detail-title">Project Details</span>
+                <button class="modal-close" aria-label="Close project detail">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body"><!-- Rendered by projects.js --></div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+       MODAL — Edit Profile (Admin)
+  ════════════════════════════════════════════════════════ -->
+    <div id="modal-profile-editor" class="modal-overlay" role="dialog" aria-modal="true"
+        aria-labelledby="profile-editor-title">
+        <div class="modal-box" style="max-width:680px">
+            <div class="modal-header">
+                <span class="modal-title" id="profile-editor-title">👤 Edit Profile</span>
+                <button class="modal-close" aria-label="Close profile editor">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="profile-editor-body"><!-- Rendered by content.js --></div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" id="modal-profile-cancel">Cancel</button>
+                <button class="btn btn-primary" id="modal-profile-save">💾 Save Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+       MODAL — Edit Education (Admin)
+  ════════════════════════════════════════════════════════ -->
+    <div id="modal-education-editor" class="modal-overlay" role="dialog" aria-modal="true"
+        aria-labelledby="education-editor-title">
+        <div class="modal-box" style="max-width:680px">
+            <div class="modal-header">
+                <span class="modal-title" id="education-editor-title">🎓 Edit Education</span>
+                <button class="modal-close" aria-label="Close education editor">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="education-editor-body"><!-- Rendered by content.js --></div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="modal-education-add" style="margin-right:auto">+ Add School</button>
+                <button class="btn btn-ghost" id="modal-education-cancel">Cancel</button>
+                <button class="btn btn-primary" id="modal-education-save">💾 Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+       MODAL — Edit Certifications (Admin)
+  ════════════════════════════════════════════════════════ -->
+    <div id="modal-cert-editor" class="modal-overlay" role="dialog" aria-modal="true">
+        <div class="modal-box" style="max-width:680px">
+            <div class="modal-header">
+                <span class="modal-title">🏆 Edit Certifications</span>
+                <button class="modal-close" aria-label="Close cert editor">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="cert-editor-body"></div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="modal-cert-add" style="margin-right:auto">+ Add
+                    Certification</button>
+                <button class="btn btn-ghost" id="modal-cert-cancel">Cancel</button>
+                <button class="btn btn-primary" id="modal-cert-save">💾 Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+       MODAL — Edit Experience (Admin)
+  ════════════════════════════════════════════════════════ -->
+    <div id="modal-exp-editor" class="modal-overlay" role="dialog" aria-modal="true">
+        <div class="modal-box" style="max-width:740px">
+            <div class="modal-header">
+                <span class="modal-title">💼 Edit Experience</span>
+                <button class="modal-close" aria-label="Close experience editor">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="exp-editor-body"></div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" id="modal-exp-add" style="margin-right:auto">+ Add Experience</button>
+                <button class="btn btn-ghost" id="modal-exp-cancel">Cancel</button>
+                <button class="btn btn-primary" id="modal-exp-save">💾 Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+       MODAL — Edit Skills (Admin)
+  ════════════════════════════════════════════════════════ -->
+    <div id="modal-skills-editor" class="modal-overlay" role="dialog" aria-modal="true"
+        aria-labelledby="skills-editor-title">
+        <div class="modal-box" style="max-width:620px">
+            <div class="modal-header">
+                <span class="modal-title" id="skills-editor-title">🛠 Edit Skills</span>
+                <button class="modal-close" aria-label="Close skills editor">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="skills-editor-body"><!-- Rendered by content.js --></div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" id="modal-skills-cancel">Cancel</button>
+                <button class="btn btn-primary" id="modal-skills-save">💾 Save Skills</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+       MODAL — Edit Currently Learning (Admin)
+  ════════════════════════════════════════════════════════ -->
+    <div id="modal-learning-editor" class="modal-overlay" role="dialog" aria-modal="true"
+        aria-labelledby="learning-editor-title">
+        <div class="modal-box" style="max-width:560px">
+            <div class="modal-header">
+                <span class="modal-title" id="learning-editor-title">📚 Edit Currently Learning</span>
+                <button class="modal-close" aria-label="Close learning editor">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round">
+                        <line x1="18" y1="6" x2="6" y2="18" />
+                        <line x1="6" y1="6" x2="18" y2="18" />
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body" id="learning-editor-body"><!-- Rendered by content.js --></div>
+            <div class="modal-footer">
+                <button class="btn btn-ghost" id="modal-learning-cancel">Cancel</button>
+                <button class="btn btn-primary" id="modal-learning-save">💾 Save</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ════════════════════════════════════════════════════════
+       SCRIPTS (order matters)
+  ════════════════════════════════════════════════════════ -->
+    <!-- External Libraries -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/tsparticles-preset-stars@2.12.0/tsparticles.preset.stars.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+    <!-- App Scripts -->
+    <script src="js/data.js"></script>
+    <script src="js/theme.js"></script>
+    <script src="js/admin.js"></script>
+    <script src="js/projects.js"></script>
+    <script src="js/content.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
