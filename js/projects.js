@@ -12,8 +12,9 @@ const Projects = (() => {
     /* ── Storage ─────────────────────────────────────────────────── */
     function getAll() {
         try {
-            return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-        } catch { return []; }
+            const saved = localStorage.getItem(STORAGE_KEY);
+            return saved ? JSON.parse(saved) : [...(window.PUBLISHED_CONTENT?.projects || [])];
+        } catch { return [...(window.PUBLISHED_CONTENT?.projects || [])]; }
     }
 
     function save(projects) {
@@ -497,5 +498,5 @@ const Projects = (() => {
         renderAll();
     }
 
-    return { init, renderAll, openProjectForm };
+    return { init, renderAll, openProjectForm, getAll };
 })();

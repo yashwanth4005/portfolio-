@@ -27,9 +27,9 @@ const Content = (() => {
         try {
             const p = localStorage.getItem(PROFILE_KEY);
             if (p) return JSON.parse(p);
-            return _getDefaultProfile();
+            return window.PUBLISHED_CONTENT?.profile || _getDefaultProfile();
         } catch {
-            return _getDefaultProfile();
+            return window.PUBLISHED_CONTENT?.profile || _getDefaultProfile();
         }
     }
 
@@ -57,36 +57,36 @@ const Content = (() => {
     function getSkills() {
         try {
             const s = localStorage.getItem(SKILLS_KEY);
-            return s ? JSON.parse(s) : JSON.parse(JSON.stringify(PORTFOLIO.skills));
-        } catch { return JSON.parse(JSON.stringify(PORTFOLIO.skills)); }
+            return s ? JSON.parse(s) : JSON.parse(JSON.stringify(window.PUBLISHED_CONTENT?.skills || PORTFOLIO.skills));
+        } catch { return JSON.parse(JSON.stringify(window.PUBLISHED_CONTENT?.skills || PORTFOLIO.skills)); }
     }
 
     function getLearning() {
         try {
             const s = localStorage.getItem(LEARNING_KEY);
-            return s ? JSON.parse(s) : [...(PORTFOLIO.learning || [])];
-        } catch { return [...(PORTFOLIO.learning || [])]; }
+            return s ? JSON.parse(s) : [...(window.PUBLISHED_CONTENT?.learning || PORTFOLIO.learning || [])];
+        } catch { return [...(window.PUBLISHED_CONTENT?.learning || PORTFOLIO.learning || [])]; }
     }
 
     function getEducation() {
         try {
             const e = localStorage.getItem(EDUCATION_KEY);
-            return e ? JSON.parse(e) : [...(PORTFOLIO.education || [])];
-        } catch { return [...(PORTFOLIO.education || [])]; }
+            return e ? JSON.parse(e) : [...(window.PUBLISHED_CONTENT?.education || PORTFOLIO.education || [])];
+        } catch { return [...(window.PUBLISHED_CONTENT?.education || PORTFOLIO.education || [])]; }
     }
 
     function getCertifications() {
         try {
             const c = localStorage.getItem(CERT_KEY);
-            return c ? JSON.parse(c) : [...(PORTFOLIO.certifications || [])];
-        } catch { return [...(PORTFOLIO.certifications || [])]; }
+            return c ? JSON.parse(c) : [...(window.PUBLISHED_CONTENT?.certifications || PORTFOLIO.certifications || [])];
+        } catch { return [...(window.PUBLISHED_CONTENT?.certifications || PORTFOLIO.certifications || [])]; }
     }
 
     function getExperience() {
         try {
             const e = localStorage.getItem(EXP_KEY);
-            return e ? JSON.parse(e) : [...(PORTFOLIO.experience || [])];
-        } catch { return [...(PORTFOLIO.experience || [])]; }
+            return e ? JSON.parse(e) : [...(window.PUBLISHED_CONTENT?.experience || PORTFOLIO.experience || [])];
+        } catch { return [...(window.PUBLISHED_CONTENT?.experience || PORTFOLIO.experience || [])]; }
     }
 
     function saveProfile(data) { localStorage.setItem(PROFILE_KEY, JSON.stringify(data)); }
