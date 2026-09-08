@@ -57,23 +57,17 @@ const Admin = (() => {
 
         toolbar.innerHTML = `
       <span class="admin-badge">⚙ Admin</span>
-            <details class="admin-menu">
-                <summary class="btn btn-outline btn-sm">✏ Edit Content</summary>
-                <div class="admin-menu-panel">
-                    <button class="admin-menu-item" id="btn-edit-profile">👤 Edit Profile</button>
-                    <button class="admin-menu-item" id="btn-edit-highlights">✨ Edit Highlights</button>
-                    <button class="admin-menu-item admin-menu-item-primary" id="btn-add-project">+ Add Project</button>
-                    <button class="admin-menu-item" id="btn-edit-education">🎓 Edit Education</button>
-                    <button class="admin-menu-item" id="btn-edit-exp">💼 Edit Experience</button>
-                    <button class="admin-menu-item" id="btn-edit-cert">🏆 Edit Certifications</button>
-                    <button class="admin-menu-item" id="btn-edit-skills">🛠 Edit Skills</button>
-                    <button class="admin-menu-item" id="btn-edit-learning">📚 Edit Learning</button>
-                    <div class="admin-menu-divider"></div>
-                    <button class="admin-menu-item" id="btn-admin-reset-pin">🔑 Change PIN</button>
-                    <button class="admin-menu-item" id="btn-admin-logout">↪ Logout</button>
-                </div>
-            </details>
-            <button class="btn btn-primary btn-sm" id="btn-publish-github">☁ Publish Changes</button>
+      <button class="btn btn-outline btn-sm" id="btn-edit-profile">👤 Edit Profile</button>
+    <button class="btn btn-outline btn-sm" id="btn-edit-highlights">✨ Edit Highlights</button>
+      <button class="btn btn-primary btn-sm" id="btn-add-project">+ Add Project</button>
+      <button class="btn btn-outline btn-sm" id="btn-edit-education">🎓 Edit Education</button>
+      <button class="btn btn-outline btn-sm" id="btn-edit-exp">💼 Edit Experience</button>
+      <button class="btn btn-outline btn-sm" id="btn-edit-cert">🏆 Edit Certifications</button>
+      <button class="btn btn-outline btn-sm" id="btn-edit-skills">🛠 Edit Skills</button>
+      <button class="btn btn-outline btn-sm" id="btn-edit-learning">📚 Edit Learning</button>
+    <button class="btn btn-primary btn-sm" id="btn-publish-github">☁ Publish Changes</button>
+      <button class="btn btn-ghost btn-sm" id="btn-admin-reset-pin" style="margin-left:auto;color:currentColor;">🔑 Change PIN</button>
+      <button class="btn btn-ghost btn-sm" style="color:currentColor;" id="btn-admin-logout">Logout</button>
     `;
 
         document.getElementById('btn-add-project').addEventListener('click', () => {
@@ -344,6 +338,32 @@ const Admin = (() => {
         });
     }
 
+    function buildPublishedSnapshot() {
+        const profile = JSON.parse(JSON.stringify(Content.getProfile()));
+        const profileImage = profile.personal?.image || '';
+        const hasUploadedImage = profileImage.startsWith('data:image/');
+        if (hasUploadedImage) profile.personal.image = 'assets/images/profile.jpg';
+
+        const snapshot = {
+            version: 1,
+            publishedAt: new Date().toISOString(),
+            profile,
+            skills: Content.getSkills(),
+            learning: Content.getLearning(),
+            education: Content.getEducation(),
+            certifications: Content.getCertifications(),
+            experience: Content.getExperience(),
+            projects: Projects.getAll()
+        };
+
+        const requiredSections = ['profile', 'skills', 'learning', 'education', 'certifications', 'experience', 'projects'];
+        if (requiredSections.some(section => snapshot[section] === undefined || snapshot[section] === null)) {
+            throw new Error('Could not collect all portfolio sections. Please reload and try again.');
+        }
+
+        return { snapshot, profileImage, hasUploadedImage };
+    }
+
     async function publishToGitHub() {
         const repositoryUrl = window.prompt('Enter your GitHub repository URL (example: https://github.com/username/portfolio):');
         if (!repositoryUrl) return;
@@ -356,25 +376,10 @@ const Admin = (() => {
         const token = window.prompt('Paste a GitHub fine-grained token with Contents: Read and write permission for this repository. It will not be saved:');
         if (!token) return;
 
-        const profile = JSON.parse(JSON.stringify(Content.getProfile()));
-        const profileImage = profile.personal?.image || '';
-        const hasUploadedImage = profileImage.startsWith('data:image/');
-        if (hasUploadedImage) profile.personal.image = 'assets/images/profile.jpg';
-
-        const snapshot = {
-            profile,
-            skills: Content.getSkills(),
-            learning: Content.getLearning(),
-            education: Content.getEducation(),
-            certifications: Content.getCertifications(),
-            experience: Content.getExperience(),
-            projects: Projects.getAll ? Projects.getAll() : []
-        };
-        const publishedFile = `/* Generated by the Admin panel. Do not edit manually. */\nwindow.PUBLISHED_CONTENT = ${JSON.stringify(snapshot)};\n`;
-
         try {
+            const { snapshot, profileImage, hasUploadedImage } = buildPublishedSnapshot();
+            const publishedFile = `/* Generated by the Admin panel. Do not edit manually. */\nwindow.PUBLISHED_CONTENT = ${JSON.stringify(snapshot)};\n`;
             const repoLabel = `${repo.owner}/${repo.repo}`;
-            await putRepositoryFile(token, repo, 'js/published-content.js', publishedFile, 'Update portfolio content');
             if (hasUploadedImage) {
                 const imageBase64 = profileImage.split(',')[1];
                 const sha = await getFileSha(token, repo, 'assets/images/profile.jpg');
@@ -389,6 +394,7 @@ const Admin = (() => {
                     body: JSON.stringify(body)
                 });
             }
+            await putRepositoryFile(token, repo, 'js/published-content.js', publishedFile, 'Update portfolio content');
             window.alert(`Published successfully to ${repoLabel}. GitHub Pages may take a minute to deploy.`);
         } catch (error) {
             window.alert(`Publish failed: ${error.message}`);
