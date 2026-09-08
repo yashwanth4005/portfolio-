@@ -47,6 +47,7 @@ const Content = (() => {
         perf.availability = perf.availability !== false;
         perf.availabilityLabel = perf.availabilityLabel || 'Available for Work';
         perf.location = perf.location || 'Vijayawada, IND';
+        perf.focus = perf.focus || 'Software & Web Dev';
         perf.topSkills = perf.topSkills || Object.values(PORTFOLIO.skills || {}).flat().slice(0, 4);
 
         return {
@@ -181,6 +182,10 @@ const Content = (() => {
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="form-label" for="pe-focus">About Card Focus</label>
+                    <input id="pe-focus" class="form-input" value="${esc(p.focus || '')}" placeholder="Software & Web Dev"/>
+                </div>
+                <div class="form-group">
                     <label class="form-label" for="pe-top-skills">Top Skills</label>
                     <input id="pe-top-skills" class="form-input" value="${esc((p.topSkills || []).join(', '))}" placeholder="Python, C, SQL, Spring Boot"/>
                     <p class="form-hint">Separate skills with commas. The first four appear on the right.</p>
@@ -244,6 +249,7 @@ const Content = (() => {
         p.availability = document.getElementById('pe-availability').value === 'available';
         p.availabilityLabel = p.availability ? 'Available for Work' : 'Not Available';
         p.location = document.getElementById('pe-location').value.trim();
+        p.focus = document.getElementById('pe-focus').value.trim();
         p.topSkills = document.getElementById('pe-top-skills').value.split(',').map(skill => skill.trim()).filter(Boolean).slice(0, 4);
 
         saveProfile(_profile);

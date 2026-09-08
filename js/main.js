@@ -154,12 +154,12 @@ function renderAbout() {
     <div class="info-card">
       <div class="info-card-icon">🎯</div>
       <div class="info-card-label">Focus</div>
-      <div class="info-card-value">Software & Web Dev</div>
+      <div class="info-card-value">${esc(p.focus || 'Software & Web Dev')}</div>
     </div>
     <div class="info-card">
       <div class="info-card-icon">📍</div>
       <div class="info-card-label">Location</div>
-      <div class="info-card-value">Vijayawada, India</div>
+      <div class="info-card-value">${esc(p.location || 'Vijayawada, India')}</div>
     </div>
     <div class="info-card">
       <div class="info-card-icon">📧</div>
