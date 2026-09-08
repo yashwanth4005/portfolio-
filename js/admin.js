@@ -295,6 +295,29 @@ const Admin = (() => {
         hideToolbar();
     }
 
+    function initMobileAdminTrigger() {
+        const logo = document.querySelector('.nav-logo');
+        if (!logo || !window.matchMedia('(max-width: 600px)').matches) return;
+
+        let pressTimer;
+        let triggered = false;
+        logo.addEventListener('touchstart', () => {
+            triggered = false;
+            pressTimer = setTimeout(() => {
+                triggered = true;
+                if (isLoggedIn()) logout();
+                else openLoginModal();
+                navigator.vibrate?.(30);
+            }, 1200);
+        }, { passive: true });
+        ['touchend', 'touchcancel'].forEach(eventName => {
+            logo.addEventListener(eventName, event => {
+                clearTimeout(pressTimer);
+                if (triggered) event.preventDefault();
+            }, { passive: false });
+        });
+    }
+
     function encodeBase64(value) {
         return btoa(unescape(encodeURIComponent(value)));
     }
@@ -414,6 +437,7 @@ const Admin = (() => {
     /* ── Init ────────────────────────────────────────────────────── */
     function init() {
         buildToolbar();
+        initMobileAdminTrigger();
 
         // Keyboard shortcut Ctrl + Shift + A
         document.addEventListener('keydown', e => {
