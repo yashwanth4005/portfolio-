@@ -299,22 +299,21 @@ const Admin = (() => {
         const logo = document.querySelector('.nav-logo');
         if (!logo || !window.matchMedia('(max-width: 600px)').matches) return;
 
-        let pressTimer;
-        let triggered = false;
-        logo.addEventListener('touchstart', () => {
-            triggered = false;
-            pressTimer = setTimeout(() => {
-                triggered = true;
+        let tapCount = 0;
+        let tapTimer;
+        logo.addEventListener('click', event => {
+            tapCount += 1;
+            clearTimeout(tapTimer);
+            tapTimer = setTimeout(() => { tapCount = 0; }, 1400);
+
+            if (tapCount === 5) {
+                event.preventDefault();
+                tapCount = 0;
+                clearTimeout(tapTimer);
                 if (isLoggedIn()) logout();
                 else openLoginModal();
                 navigator.vibrate?.(30);
-            }, 1200);
-        }, { passive: true });
-        ['touchend', 'touchcancel'].forEach(eventName => {
-            logo.addEventListener(eventName, event => {
-                clearTimeout(pressTimer);
-                if (triggered) event.preventDefault();
-            }, { passive: false });
+            }
         });
     }
 
