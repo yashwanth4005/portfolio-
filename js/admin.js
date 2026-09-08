@@ -57,17 +57,24 @@ const Admin = (() => {
 
         toolbar.innerHTML = `
       <span class="admin-badge">⚙ Admin</span>
-      <button class="btn btn-outline btn-sm" id="btn-edit-profile">👤 Edit Profile</button>
-    <button class="btn btn-outline btn-sm" id="btn-edit-highlights">✨ Edit Highlights</button>
-      <button class="btn btn-primary btn-sm" id="btn-add-project">+ Add Project</button>
-      <button class="btn btn-outline btn-sm" id="btn-edit-education">🎓 Edit Education</button>
-      <button class="btn btn-outline btn-sm" id="btn-edit-exp">💼 Edit Experience</button>
-      <button class="btn btn-outline btn-sm" id="btn-edit-cert">🏆 Edit Certifications</button>
-      <button class="btn btn-outline btn-sm" id="btn-edit-skills">🛠 Edit Skills</button>
-      <button class="btn btn-outline btn-sm" id="btn-edit-learning">📚 Edit Learning</button>
-    <button class="btn btn-primary btn-sm" id="btn-publish-github">☁ Publish Changes</button>
-      <button class="btn btn-ghost btn-sm" id="btn-admin-reset-pin" style="margin-left:auto;color:currentColor;">🔑 Change PIN</button>
-      <button class="btn btn-ghost btn-sm" style="color:currentColor;" id="btn-admin-logout">Logout</button>
+            <details class="admin-menu">
+                <summary class="btn btn-outline btn-sm">✏ Edit Content</summary>
+                <div class="admin-menu-panel">
+                    <div class="admin-menu-heading">Portfolio sections</div>
+                    <button class="admin-menu-item" id="btn-edit-profile">👤 Edit Profile</button>
+                    <button class="admin-menu-item" id="btn-edit-highlights">✨ Edit Highlights</button>
+                    <button class="admin-menu-item admin-menu-item-primary" id="btn-add-project">＋ Add Project</button>
+                    <button class="admin-menu-item" id="btn-edit-education">🎓 Edit Education</button>
+                    <button class="admin-menu-item" id="btn-edit-exp">💼 Edit Experience</button>
+                    <button class="admin-menu-item" id="btn-edit-cert">🏆 Edit Certifications</button>
+                    <button class="admin-menu-item" id="btn-edit-skills">🛠 Edit Skills</button>
+                    <button class="admin-menu-item" id="btn-edit-learning">📚 Edit Learning</button>
+                    <div class="admin-menu-divider"></div>
+                    <button class="admin-menu-item" id="btn-admin-reset-pin">🔑 Change PIN</button>
+                    <button class="admin-menu-item" id="btn-admin-logout">↪ Logout</button>
+                </div>
+            </details>
+            <button class="btn btn-primary btn-sm" id="btn-publish-github">☁ Publish Changes</button>
     `;
 
         document.getElementById('btn-add-project').addEventListener('click', () => {
@@ -99,6 +106,9 @@ const Admin = (() => {
         document.getElementById('btn-publish-github').addEventListener('click', publishToGitHub);
         document.getElementById('btn-admin-reset-pin').addEventListener('click', resetPin);
         document.getElementById('btn-admin-logout').addEventListener('click', logout);
+        toolbar.querySelectorAll('.admin-menu-item').forEach(button => {
+            button.addEventListener('click', () => toolbar.querySelector('.admin-menu')?.removeAttribute('open'));
+        });
     }
 
     function resetPin() {

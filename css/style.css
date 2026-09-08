@@ -1588,6 +1588,72 @@ footer {
     border-radius: var(--radius-pill);
 }
 
+.admin-menu {
+    position: relative;
+}
+
+.admin-menu summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+.admin-menu summary::-webkit-details-marker {
+    display: none;
+}
+
+.admin-menu-panel {
+    position: absolute;
+    bottom: calc(100% + 10px);
+    left: 0;
+    width: 230px;
+    padding: 8px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xl);
+}
+
+.admin-menu-heading {
+    padding: 5px 10px 8px;
+    color: var(--text-muted);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.admin-menu-item {
+    display: block;
+    width: 100%;
+    padding: 9px 10px;
+    border: 0;
+    border-radius: var(--radius-sm);
+    background: transparent;
+    color: var(--text-primary);
+    font: inherit;
+    font-size: 0.82rem;
+    text-align: left;
+    cursor: pointer;
+}
+
+.admin-menu-item:hover,
+.admin-menu-item:focus-visible {
+    background: var(--accent-light);
+    color: var(--accent);
+    outline: none;
+}
+
+.admin-menu-item-primary {
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.admin-menu-divider {
+    height: 1px;
+    margin: 6px 4px;
+    background: var(--border);
+}
+
 /* ================================================================
    MODALS — Base
    ================================================================= */
@@ -2288,8 +2354,13 @@ footer {
         right: 16px;
         transform: none;
         border-radius: var(--radius-lg);
-        flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-between;
+    }
+
+    .admin-menu-panel {
+        left: 0;
+        right: auto;
+        max-width: calc(100vw - 32px);
     }
 }
 
